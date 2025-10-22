@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deepika's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+    body { background-color:#1e1e1e; color:#fff; overflow-x:hidden; }
+    #particles-js { position:fixed; width:100%; height:100%; z-index:0; }
+    header, main, footer { position:relative; z-index:1; }
+    header { position:sticky; top:0; z-index:10; background:linear-gradient(to right, rgba(30,30,30,0.9), rgba(0,200,255,0.2)); padding:20px 40px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 20px rgba(0,200,255,0.5); animation:slideDown 1s ease forwards; }
+    @keyframes slideDown { 0% {transform:translateY(-100%); opacity:0;} 100% {transform:translateY(0); opacity:1;} }
+    header h1 { font-size:24px; font-weight:700; background:linear-gradient(270deg, #00f0ff, #ff00cc, #00ffcc); background-size:600% 600%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:gradientText 5s ease infinite; }
+    @keyframes gradientText { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+    nav a { text-decoration:none; color:#ccc; margin-left:20px; font-weight:600; transition:color 0.3s; }
+    nav a:hover { color:#00c8ff; }
+    section { padding:100px 40px; position:relative; z-index:1; animation:fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+    section h2 { font-size:34px; text-align:center; margin-bottom:40px; color:#00c8ff; animation:glowText 3s ease-in-out infinite alternate; }
+    @keyframes glowText { from {text-shadow:0 0 10px #00c8ff;} to {text-shadow:0 0 20px #00c8ff, 0 0 30px #00c8ff;} }
+    .section-box { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; background:rgba(255,255,255,0.05); padding:30px; border-radius:14px; transition:all 0.6s ease; box-shadow:0 0 20px rgba(0,200,255,0.1); }
+    .section-box:hover { transform:scale(1.02); box-shadow:0 0 40px rgba(0,200,255,0.3); }
+    .about-left img { max-width:160px; border-radius:10%; border:4px solid #00c8ff; transition: transform 1.2s ease-in-out; cursor:pointer; }
+    .about-left img:hover { transform:scale(1.5) rotate(720deg); }
+    .card, .skills-card, .details { background:rgba(255,255,255,0.08); border-radius:14px; padding:25px; color:white; text-align:center; transition:transform 0.5s ease, background 0.3s; }
+    .card:hover, .skills-card:hover, .details:hover { transform:translateY(-10px) scale(1.05); background:rgba(255,255,255,0.15); box-shadow:0 0 20px #00c8ff88; }
+    .card img { width:100%; max-width:320px; height:auto; border-radius:10px; margin-bottom:15px; }
+    .social-links { margin-top:12px; display:flex; justify-content:center; gap:24px; }
+    .social-links a { border:2px solid white; border-radius:50%; padding:12px; width:52px; height:52px; display:flex; align-items:center; justify-content:center; color:white; transition:transform 0.5s, background-color 0.3s; }
+    .social-links a:hover { transform:rotate(360deg) scale(1.2); background-color:white; color:#2e2e2e; }
+    .social-links img { width:24px; height:24px; }
+    footer { text-align:center; padding:20px; background:linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,200,255,0.2)); color:#aaa; font-size:14px; animation:slideUp 1s ease forwards; }
+    @keyframes slideUp { from {transform:translateY(100%); opacity:0;} to {transform:translateY(0); opacity:1;} }
+    .profile-about { flex-direction:row; align-items:center; justify-content:flex-start; gap:30px; }
+    .about-right { max-width:600px; }
+    .skills-container { display:grid; grid-template-columns: repeat(4, 1fr); gap:40px 60px; justify-items:center; align-items:center; }
+    .skills-container img { width:60px; height:60px; transition: transform 0.5s ease, box-shadow 0.5s ease; }
+    .skills-container.glow img { box-shadow:0 0 20px #00c8ff, 0 0 40px #00c8ff; transform:scale(1.3); }
+    @media (max-width:900px) { .section-box, .profile-about { flex-direction:column; align-items:center; text-align:center; } }
+
+    /* Resume Button - Small Box Only */
+    a.resume-btn {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: #00c8ff;
+      color: #1e1e1e;
+      font-weight: 600;
+      font-size: 13px;
+      border: 2px solid #00c8ff;
+      text-decoration: none;
+      transition: box-shadow 0.6s ease, transform 0.3s ease;
+      width: fit-content;
+      text-align: center;
+      box-shadow: 0 0 6px rgba(0,200,255,0.4);
+    }
+    a.resume-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00c8ff, 0 0 20px #00c8ff;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Deepika P</h1>
+    <nav>
+      <a href="#profile">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PROFILE / ABOUT -->
+  <section id="profile" data-aos="fade-up">
+    <div class="section-box" style="display:flex; justify-content:center; padding:40px;">
+      <div style="display:flex; width:100%; max-width:1000px; border-radius:14px; gap:40px; align-items:center;">
+        <div style="flex:1; display:flex; justify-content:flex-start; align-items:center; padding:20px;">
+          <img src="pp.jpg" alt="Profile Image" 
+               style="max-width:250px; width:100%; border-radius:10%; border:4px solid #00c8ff; transition: transform 1.2s ease-in-out; cursor:pointer;"
+               onmouseover="this.style.transform='scale(1.5) rotate(720deg)';"
+               onmouseout="this.style.transform='scale(1) rotate(0deg)';">
+        </div>
+        <div style="flex:2; display:flex; flex-direction:column; justify-content:center; gap:12px; padding:20px;">
+          <h2 style="margin:0;">Deepika P</h2>
+          <p style="margin:0; font-weight:600;">AI & ML Final Year Student</p>
+          <p style="margin-top:10px;">I’m Deepika, a passionate and curious final year B.Tech student specializing in Artificial Intelligence and Machine Learning. I’m deeply interested in the power of intelligent systems and how they can transform real-world problems into innovative solutions. My learning journey blends strong fundamentals in Python, Java, and web technologies with hands-on experience through projects like Text-to-Image Transformation and a Personalized Tutor Bot.</p>
+          <div class="social-links" style="justify-content:flex-start; margin-top:12px;">
+            <a href="https://github.com/deepika-dhee" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:24px;height:24px;">
+            </a>
+            <a href="https://www.linkedin.com/in/deepika-panneer-selvam-a71b25257" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:24px;height:24px;">
+            </a>
+          </div>
+          <!-- SMALLER RESUME BUTTON -->
+          <a href="DEEPIKA_CV.pdf" target="_blank" class="resume-btn">View Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="section-box skills-container">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C Programming">
+    </div>
+  </section>
+    <!-- TOOLS -->
+    <!-- TOOLS -->
+    <!-- TOOLS -->
+  <section id="tools">
+  <h2>Tools</h2>
+  <div class="section-box skills-container">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva" style="width:60px;height:60px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:60px;height:60px;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda" style="width:60px;height:60px;">
+  
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-original.svg" alt="Google Colab" style="width:60px;height:60px;">
+  </div>
+</section>
+
+
+
+  <!-- PROJECTS -->
+  <!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="section-box" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="card" style="width:300px;">
+      <img src="text.jpg" alt="Text to Image Project">
+      <h3>Text to Image Transformation – 2024</h3>
+      <p>Text-to-Image Transformation uses AI to generate realistic images from natural language descriptions, enabling meaningful visual interpretation for design, virtual reality, marketing, and more.</p>
+      <a href="https://github.com/deepika-dhee/text-image-transform" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width: 32px; height: 32px;">
+      </a>
+    </div>
+    <div class="card" style="width:300px;">
+      <img src="tutor.jpg" alt="Tutor Bot Project">
+      <h3>Personalized Tutor Bot – 2025</h3>
+      <p>A personalized tutor bot delivers tailored learning by adapting to each student's style, pace, and needs, offering support, real-time feedback, and helping close knowledge gaps.</p>
+      <a href="https://github.com/deepika-dhee/Personalized-Tutor-Bot" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width: 32px; height: 32px;">
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <h2>Certifications</h2>
+    <div class="section-box">
+      <div class="card">
+        <img src="oft.jpg" alt="Inplant Training">
+        <h3>Inplant Training</h3>
+        <p>2024 - OFT</p>
+      </div>
+      <div class="card">
+        <img src="af.jpg" alt="Azure Fundamentals">
+        <h3>Microsoft Azure Fundamentals</h3>
+        <p>2024 - Microsoft</p>
+      </div>
+      <div class="card">
+        <img src="ai.jpg" alt="Applied Generative AI">
+        <h3>Applied Generative AI</h3>
+        <p>2025 - Simplilearn</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="section-box" style="justify-content:center;">
+      <div class="education-card" style="width:300px;">
+        <div class="edu-img-container" style="position:relative; width:100%; height:150px; overflow:hidden; border-radius:10px;">
+          <img src="images.jpeg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:1; transition:opacity 2.5s;">
+          <img src="krct.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 2.5s;">
+        </div>
+        <h3>B.Tech - AI & ML</h3>
+        <p>K. Ramakrishnan College of Technology, Trichy</p>
+        <p>2022 - 2026</p>
+      </div>
+      <div class="education-card" style="width:300px;">
+        <div class="edu-img-container" style="position:relative; width:100%; height:150px; overflow:hidden; border-radius:10px;">
+          <img src="schl2.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:1; transition:opacity 2.5s;">
+          <img src="scl.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 2.5s;">
+        </div>
+        <h3>H.S.C</h3>
+        <p>Guru Gnana Sambandar Mission Matriculation Hr Sec School, Mayiladuthurai</p>
+        <p>2022</p>
+      </div>
+      <div class="education-card" style="width:300px;">
+        <div class="edu-img-container" style="position:relative; width:100%; height:150px; overflow:hidden; border-radius:10px;">
+          <img src="schl2.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:1; transition:opacity 2.5s;">
+          <img src="scl.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 2.5s;">
+        </div>
+        <h3>S.S.L.C</h3>
+        <p>Guru Gnana Sambandar Mission Matriculation Hr Sec School, Mayiladuthurai</p>
+        <p>2020</p>
+      </div>
+    </div>
+    <script>
+      const eduContainers = document.querySelectorAll('.edu-img-container');
+      eduContainers.forEach(container => {
+        const imgs = container.querySelectorAll('img');
+        let current = 0;
+        setInterval(() => {
+          imgs[current].style.opacity = 0;
+          current = (current + 1) % imgs.length;
+          imgs[current].style.opacity = 1;
+        }, 4000);
+      });
+    </script>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="section-box">
+      <div class="details"><h3>💌 Email</h3><p>deepikadeepika2k24@gmail.com</p></div>
+      <div class="details"><h3>📍 Location</h3><p>Samayapuram, Trichy</p></div>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 40px;">
+      <div class="details" style="max-width: 600px; width: 100%;">
+        <h3 style="text-align: center;">Connect with me</h3>
+        <form action="https://formspree.io/f/xblyeabn" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 8px; border: none; width: 100%; margin-bottom: 10px;">
+          <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 8px; border: none; width: 100%; margin-bottom: 10px;">
+          <textarea name="message" placeholder="Your Message" rows="4" required style="padding: 10px; border-radius: 8px; border: none; width: 100%; margin-bottom: 10px;"></textarea>
+          <button type="submit" style="padding: 10px 20px; border-radius: 8px; border: none; background-color: #00c8ff; color: #1e1e1e; font-weight: 600; cursor: pointer;">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer></footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 800 } },
+        color: { value: "#00c8ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 120, color: "#00c8ff", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "bounce" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
